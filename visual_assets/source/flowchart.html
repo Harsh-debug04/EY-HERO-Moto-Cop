@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidyutt Logic Flow</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f8f9fa; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #333; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vidyutt: Logic Flow Chart</h1>
+        <div class="mermaid">
+            flowchart TD
+                Start([Start: Ingest Sensor Data]) --> Anomaly{Anomaly Detected?}
+                Anomaly -- No --> Start
+                Anomaly -- Yes --> RunRUL[Diagnosis Agent runs RUL Model]
+                RunRUL --> TriggerMaster[Master Agent triggers Engagement]
+                TriggerMaster --> Call[Initiate Voice Call]
+
+                Call --> CustomerResp{Customer Accepts?}
+
+                CustomerResp -- Yes --> CheckSlots[Scheduling Agent checks slots]
+                CheckSlots --> Book[Book Appointment]
+                Book --> Notify[Update Dashboard]
+
+                CustomerResp -- No --> LogReason[Log Reason]
+                LogReason --> Reminder[Set Reminder]
+
+                %% Parallel Manufacturing Path
+                RunRUL --> SendMfg[Send Data to Manufacturing Agent]
+                SendMfg --> UpdateKG[Update Knowledge Graph]
+                UpdateKG --> Alert{Threshold Crossed?}
+                Alert -- Yes --> TriggerAlert[Trigger Recall Alert]
+                Alert -- No --> End([End])
+
+                Notify --> End
+                Reminder --> End
+
+                classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+                classDef action fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+                classDef terminator fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+
+                class Anomaly,CustomerResp,Alert decision;
+                class RunRUL,TriggerMaster,Call,CheckSlots,Book,Notify,LogReason,Reminder,SendMfg,UpdateKG,TriggerAlert action;
+                class Start,End terminator;
+        </div>
+    </div>
+</body>
+</html>

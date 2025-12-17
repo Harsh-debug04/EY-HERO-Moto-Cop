@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langgraph
+langchain
+pydantic
+matplotlib
+networkx
+scipy
+playwright
+pytest
+httpx

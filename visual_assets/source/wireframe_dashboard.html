@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidyutt Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gray-800 border-b border-gray-700 p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <i class="fas fa-bolt text-yellow-400 text-2xl"></i>
+            <h1 class="text-xl font-bold tracking-wide">VIDYUTT <span class="text-gray-400 text-sm font-normal">| Faceless Agentic Orchestrator</span></h1>
+        </div>
+        <div class="flex items-center space-x-6">
+            <div class="text-center">
+                <span class="block text-2xl font-bold text-green-400">98.2%</span>
+                <span class="text-xs text-gray-400">Fleet Uptime</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-2xl font-bold text-yellow-400">14</span>
+                <span class="text-xs text-gray-400">Critical Alerts</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-2xl font-bold text-blue-400">8</span>
+                <span class="text-xs text-gray-400">Active Calls</span>
+            </div>
+            <div class="h-10 w-10 bg-gray-700 rounded-full flex items-center justify-center">
+                <i class="fas fa-user-shield text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 border-r border-gray-700 p-4 space-y-4">
+            <nav class="space-y-2">
+                <a href="#" class="block p-3 bg-gray-700 rounded text-white font-medium border-l-4 border-blue-500"><i class="fas fa-map-marked-alt mr-2"></i> Fleet Overview</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded"><i class="fas fa-headset mr-2"></i> Live Conversations</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded"><i class="fas fa-network-wired mr-2"></i> Root Cause Analysis</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded"><i class="fas fa-calendar-check mr-2"></i> Service Schedule</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded"><i class="fas fa-shield-alt mr-2"></i> UEBA Security</a>
+            </nav>
+
+            <div class="mt-10 p-4 bg-gray-900 rounded border border-gray-700">
+                <h3 class="text-xs font-bold text-gray-500 uppercase mb-2">System Status</h3>
+                <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="text-gray-400">Master Agent</span>
+                    <span class="text-green-500"><i class="fas fa-circle text-[8px]"></i> Online</span>
+                </div>
+                <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="text-gray-400">Voice Gateway</span>
+                    <span class="text-green-500"><i class="fas fa-circle text-[8px]"></i> Connected</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-400">Kafka Stream</span>
+                    <span class="text-yellow-500"><i class="fas fa-circle text-[8px]"></i> Lagging</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Map/Dashboard Area -->
+        <div class="flex-1 p-6 overflow-y-auto relative bg-gray-900">
+            <!-- Simulated Map Background -->
+            <div class="absolute inset-0 opacity-20 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] bg-cover bg-center pointer-events-none"></div>
+
+            <div class="grid grid-cols-3 gap-6 relative z-10">
+
+                <!-- Vehicle Card - Critical -->
+                <div class="bg-gray-800 rounded-lg p-5 border border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-white">KA-05-MJ-2023</h3>
+                            <p class="text-xs text-gray-400">Model: XUV700 | ID: 99281</p>
+                        </div>
+                        <span class="px-2 py-1 bg-red-900 text-red-300 text-xs rounded font-bold animate-pulse">CRITICAL</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Engine Temp</span>
+                            <span class="text-red-400 font-bold">118°C <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">RUL Prediction</span>
+                            <span class="text-red-400 font-bold">45 mins</span>
+                        </div>
+                        <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-red-500 h-full" style="width: 88%"></div>
+                        </div>
+                        <p class="text-xs text-red-300 mt-2"><i class="fas fa-exclamation-triangle"></i> Diagnosis: Water Pump Failure Probability 88%</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <div class="flex items-center text-sm text-blue-400">
+                            <i class="fas fa-phone-volume mr-2 animate-bounce"></i> Agent Calling Customer...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card - Warning -->
+                <div class="bg-gray-800 rounded-lg p-5 border-l-4 border-yellow-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-white">MH-02-DN-4412</h3>
+                            <p class="text-xs text-gray-400">Model: Scorpio N | ID: 11029</p>
+                        </div>
+                        <span class="px-2 py-1 bg-yellow-900 text-yellow-300 text-xs rounded font-bold">WARNING</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Battery Voltage</span>
+                            <span class="text-yellow-400 font-bold">11.2V <i class="fas fa-arrow-down"></i></span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Last Service</span>
+                            <span class="text-gray-300">180 days ago</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                         <button class="w-full py-2 bg-gray-700 hover:bg-gray-600 text-sm rounded text-gray-300">View Telematics</button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card - Normal -->
+                <div class="bg-gray-800 rounded-lg p-5 border-l-4 border-green-500 opacity-70">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-white">DL-8C-NB-1092</h3>
+                            <p class="text-xs text-gray-400">Model: Thar | ID: 55102</p>
+                        </div>
+                        <span class="px-2 py-1 bg-green-900 text-green-300 text-xs rounded font-bold">HEALTHY</span>
+                    </div>
+                     <div class="space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Status</span>
+                            <span class="text-green-400 font-bold">Optimal</span>
+                        </div>
+                         <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Speed</span>
+                            <span class="text-gray-300">65 km/h</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
